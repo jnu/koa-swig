@@ -30,15 +30,16 @@ var defaultSettings = {
   locals: {},
   filters: {}.
   tags: {},
-  extensions: {}
+  extensions: {},
+  opts: {}
   */
 };
 
 // Generator `renderFile`
 
-function renderFile(pathName, locals) {
+function renderFile(pathName, locals, opts) {
   return function (done) {
-    swig.renderFile(pathName, locals, done);
+    swig.renderFile(pathName, locals, opts, done);
   };
 }
 
@@ -101,7 +102,7 @@ function renderer(app, settings) {
     mixin(opts, options || {});
 
     debug('render %s %j', view, opts);
-    var html = yield renderFile(view, opts);
+    var html = yield renderFile(view, opts, settings.opts);
     /* jshint validthis:true */
     this.type = 'html';
     this.body = html;
