@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "debug": "^0.7.4",
-    "swig": "git://github.com/jnu/swig.git",
+    "swig": "git://github.com/jnu/swig.git#master",
     "utils-merge": "^1.0.0"
   },
   "repository": {
